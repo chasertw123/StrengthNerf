@@ -6,7 +6,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
-import org.bukkit.event.inventory.BrewEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.event.player.PlayerInteractEvent;
@@ -48,25 +47,6 @@ public class Main extends JavaPlugin implements Listener {
 				p.sendMessage(ChatColor.RED + "You are not allowed to use Strength II potions!");
 			}	
 		}
-	}
-	
-	@EventHandler
-	public void onBrew(BrewEvent e) {
-		
-		boolean potion = false;
-		
-		for (ItemStack i : e.getContents()) {
-			
-			short data = i.getDurability();
-			
-			if (data == 8201 || data == 8265 || data == 16457 || data == 16393) {
-				potion = true;
-				break;
-			}
-		}
-		
-		if (potion == true)
-			e.setCancelled(true);
 	}
 	
 	@EventHandler
